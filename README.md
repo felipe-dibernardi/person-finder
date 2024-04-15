@@ -1,27 +1,13 @@
 # Welcome
 
-This is a start-up Git repo for a project we are calling 'Persons finder'.
+This is an application to store locations and find people within radius of a coordinate
 
-Your job is to create a set of API's that will feed a mobile application that has one purpose: find people around you.
+The decisions taken for this project are shown below:
+- Use of Domain Driven Design with a Person entity and a Location value object
+- Business logic (boundary coordinates and distance in KM) located within the Domain, without any framework wrapping. That allows for more flexibility if any change in framework is needed.
+- Full business logic isolation, how data is persisted (database) or sent/received (controller) is of no concern of this layer
+- Database entities separated from domain entities allowing us to both use any kind of database we want and model its entities however we want without worrying about business logic changes.
+- DTOs separated from domain entities to allow us to send exactly the fields needed to whoever is consuming our API, specially important when dealing with mobile consumers with restricted bandwidth
 
-Requirements:
-- POST API to create a 'person'
-- PUT API to update/create someone's location using latitude and longitude
-- GET API to retrieve people around query location with a radius in KM, Use query param for radius. Extra challenge: Return list ordered by distance to each person.
-- GET API to retrieve a person or persons name using their ids
-- Responses must follow a JSON format
-
-You'll also need to build the logic and services for saving/retrieving locations and persons.
-
-Steps:
-- Clone the project
-- Implement required API's and services
-- Push your project to your personal github
-
-
-### Extra challenge
-### Add a million, 10 million and 100 million entries and challenge your API's efficiency 
-
-For any questions, please reach out on: leo@getsquareone.app
-
-
+Next steps for the project:
+- Improve on test coverage
